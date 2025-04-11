@@ -1,0 +1,27 @@
+<div class="home-container">
+  <section class="hero">
+    <h1 class="hero-title">Számítógép összehasonlító</h1>
+    <p class="hero-subtitle">
+      Hasonlítsd össze a legújabb konfigurációkat, és találd meg a számodra legjobbat!
+    </p>
+  
+  </section>
+
+  <section class="features">
+    <div class="feature-card" *ngFor="let feature of features">
+      <mat-icon>{{ feature.icon }}</mat-icon> 
+      <h3>{{ feature.title }}</h3>
+      <p>{{ feature.description }}</p>
+    </div>
+  </section>
+
+  
+  <section class="slider-section">
+    <h3>Ár választó</h3>
+    <mat-slider min="0" max="10000" step="100" tickInterval="500" thumbLabel>
+      <input matSliderThumb [(ngModel)]="sliderValue" />
+    </mat-slider>
+    <p>Választott ár: {{ sliderValue }} USD</p>
+  </section>
+  
+</div>

@@ -1,0 +1,61 @@
+<div class="configurator-container">
+    <h1>Számítógép konfigurátor</h1>
+    <p>Válassz alkatrészeket és állítsd össze a saját géped!</p>
+  
+    
+    <div class="components-grid">
+      <div *ngFor="let processor of processors" class="component-card" (click)="selectComponent('processor', processor)">
+        <h3>{{ processor.name }}</h3>
+        <p>{{ processor.price }} USD</p>
+        <p>{{ processor.cores }} cores, {{ processor.speed }} GHz</p>
+      </div>
+      
+      <div *ngFor="let motherboard of motherboards" class="component-card" (click)="selectComponent('motherboard', motherboard)">
+        <h3>{{ motherboard.name }}</h3>
+        <p>{{ motherboard.price }} USD</p>
+        <p>Chipset: {{ motherboard.chipset }}</p>
+      </div>
+  
+      <div *ngFor="let ram of rams" class="component-card" (click)="selectComponent('ram', ram)">
+        <h3>{{ ram.name }}</h3>
+        <p>{{ ram.price }} USD</p>
+        <p>{{ ram.capacity }} GB, {{ ram.speed }} MHz</p>
+      </div>
+  
+      <div *ngFor="let gpu of gpus" class="component-card" (click)="selectComponent('gpu', gpu)">
+        <h3>{{ gpu.name }}</h3>
+        <p>{{ gpu.price }} USD</p>
+        <p>{{ gpu.memory }} GB</p>
+      </div>
+    </div>
+  
+    <!-- Kiválasztott alkatrész megjelenítése -->
+    <div *ngIf="selectedProcessor">
+      <h3>Selected Processor:</h3>
+      <p>{{ selectedProcessor?.name }}</p>
+    </div>
+  
+    <div *ngIf="selectedMotherboard">
+      <h3>Selected Motherboard:</h3>
+      <p>{{ selectedMotherboard?.name }}</p>
+    </div>
+  
+    <div *ngIf="selectedRam">
+      <h3>Selected RAM:</h3>
+      <p>{{ selectedRam?.name }}</p>
+    </div>
+  
+    <div *ngIf="selectedGpu">
+      <h3>Selected GPU:</h3>
+      <p>{{ selectedGpu?.name }}</p>
+    </div>
+  
+    
+    <div>
+      <h3>Összesített ár: {{ totalPrice }} USD</h3>
+    </div>
+  
+    
+    <button class="save-button" (click)="saveConfiguration()">Konfiguráció mentése</button>
+  </div>
+  

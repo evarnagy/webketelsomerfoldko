@@ -1,0 +1,36 @@
+<div class="cart-container">
+    <h2>Kosár</h2>
+    <form (ngSubmit)="submit()">
+      <mat-form-field class="full-width" appHighlightOnHover>
+        <mat-label>Email cím</mat-label>
+        <input
+          matInput
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          type="email"
+          required
+          appAutoFocus
+        />
+      </mat-form-field>
+  
+      <mat-form-field class="full-width" appHighlightOnHover>
+        <mat-label>Teljes név</mat-label>
+        <input
+          matInput
+          id="fullName"
+          [(ngModel)]="fullName"
+          name="fullName"
+          type="text"
+          required
+        />
+      </mat-form-field>
+  
+      <mat-checkbox [(ngModel)]="subscribeToNewsletter" name="subscribeToNewsletter">
+        Feliratkozom a hírlevélre
+      </mat-checkbox>
+  
+      <button mat-raised-button color="primary" type="submit">Megrendelés leadása</button>
+    </form>
+  </div>
+  
